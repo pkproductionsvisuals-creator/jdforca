@@ -2,12 +2,15 @@ package telas;
 
 import modelo.utilizador.Jogador;
 import javax.swing.*;
+
+import componentes.Fontes;
+
 import java.awt.*;
 import java.util.ArrayList;
 
 import dados.DadosJogadores;
 
-public class TelaLogin extends JFrame{
+public class TelaLogin extends JFrame {
     private JTextField campoNick;
     private JPasswordField campoSenha;
     private JButton botaoEntrar;
@@ -16,82 +19,106 @@ public class TelaLogin extends JFrame{
 
     private ArrayList<Jogador> jogadores;
 
-    public TelaLogin(){
+    public TelaLogin() {
         jogadores = DadosJogadores.carregarJogadores();
 
         setTitle("Jogo da Forca  - Login");
-        setSize(450, 350);
+        setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
 
         JPanel painel = new JPanel();
         painel.setLayout(null);
-        painel.setBounds(70, 40, 300, 240);
-        painel.setBackground(new Color(240, 240, 240));
+        painel.setBounds(0, 0, 600, 400);
+        painel.setBackground(new Color(18, 112, 78));
         add(painel);
 
-        JLabel titulo =  new JLabel("JOGO DA FORCA");
-        titulo.setFont(new Font("Arial", Font.BOLD, 18));
-        titulo.setBounds(80, 20, 180, 25);
+        JLabel titulo = new JLabel("JOGO DA FORCA");
+        titulo.setFont(Fontes.tW(32f));
+        titulo.setBounds(170, 35, 260, 40);
+        titulo.setForeground(Color.WHITE);
+        titulo.setHorizontalAlignment(SwingConstants.CENTER);
         painel.add(titulo);
 
-        JLabel subtitulo = new JLabel("Acesso ao Jogador");
-        subtitulo.setBounds(95, 45, 150, 25);
-        painel.add(subtitulo);
-
-        JLabel labelNick = new JLabel("Nick");
-        labelNick.setBounds(45, 85, 80, 25);
+        JLabel labelNick = new JLabel("NICK");
+        labelNick.setBounds(285, 92, 80, 20);
+        labelNick.setForeground(Color.WHITE);
+        labelNick.setFont(Fontes.tW(14f));
         painel.add(labelNick);
 
         campoNick = new JTextField();
-        campoNick.setBounds(120, 85, 130, 25);
+        campoNick.setBounds(180, 115, 240, 45);
+        campoNick.setBackground(Color.WHITE);
+        campoNick.setForeground(Color.BLACK);
+        campoNick.setFont(Fontes.tW(18f));
         painel.add(campoNick);
 
-        JLabel labelSenha = new JLabel("Senha");
-        labelSenha.setBounds(45, 120, 80, 25);
+        JLabel labelSenha = new JLabel("PASS");
+        labelSenha.setBounds(285, 170, 80, 20);
+        labelSenha.setForeground(Color.WHITE);
+        labelSenha.setFont(Fontes.tW(14f));
         painel.add(labelSenha);
 
         campoSenha = new JPasswordField();
-        campoSenha.setBounds(120, 120, 80, 25);
+        campoSenha.setBounds(180, 193, 240, 45);
+        campoSenha.setBackground(Color.WHITE);
+        campoSenha.setForeground(Color.BLACK);
+        campoSenha.setFont(Fontes.tW(18f));
         painel.add(campoSenha);
 
-        botaoEntrar = new JButton("Entrar");
-        botaoEntrar.setBounds(45, 165, 90, 30);
+        botaoEntrar = new JButton("SignIn");
+        botaoEntrar.setBounds(180, 260, 110, 45);
+        botaoEntrar.setBackground(new Color(223, 223, 223));
+        botaoEntrar.setForeground(new Color(15, 106, 76));
+        botaoEntrar.setFont(Fontes.tW(17f));
+        botaoEntrar.setFocusPainted(false);
+        botaoEntrar.setBorderPainted(false);
         painel.add(botaoEntrar);
 
-        botaoCriarPerfil = new JButton("Criar Perfil");
-        botaoCriarPerfil.setBounds(145, 165, 110, 30);
-        painel. add(botaoCriarPerfil);
+        botaoCriarPerfil = new JButton("SignUp");
+        botaoCriarPerfil.setBounds(310, 260, 110, 45);
+        botaoCriarPerfil.setBackground(new Color(223, 223, 223));
+        botaoCriarPerfil.setForeground(new Color(15, 106, 76));
+        botaoCriarPerfil.setFont(Fontes.tW(17f));
+        botaoCriarPerfil.setFocusPainted(false);
+        botaoCriarPerfil.setBorderPainted(false);
+        painel.add(botaoCriarPerfil);
 
-        botaoAdmin = new JButton("Entrar como ADMIN");
-        botaoAdmin.setBounds(80, 205, 150, 30);
+        botaoAdmin = new JButton("ADM");
+        botaoAdmin.setBounds(180, 325, 240, 45);
+        botaoAdmin.setBackground(new Color(223, 223, 223));
+        botaoAdmin.setForeground(new Color(15, 106, 76));
+        botaoAdmin.setFont(Fontes.tW(18f));
+        botaoAdmin.setFocusPainted(false);
+        botaoAdmin.setBorderPainted(false);
         painel.add(botaoAdmin);
 
-        botaoEntrar.addActionListener(e-> fazerLogin());
-        botaoCriarPerfil.addActionListener(e->{
+        botaoEntrar.addActionListener(e -> fazerLogin());
+
+        botaoCriarPerfil.addActionListener(e -> {
             dispose();
             new TelaCadastro().setVisible(true);
         });
-        botaoAdmin.addActionListener(e->{
-            JOptionPane.showMessageDialog(this, "Tela ADMIN sera criada em breve");
 
+        botaoAdmin.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "Tela ADMIN sera criada em breve");
         });
     }
 
-    private void fazerLogin(){
+    private void fazerLogin() {
         String nick = campoNick.getText();
         String senha = new String(campoSenha.getPassword());
 
-        if(nick.isEmpty() || senha.isEmpty()){
+        if (nick.isEmpty() || senha.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha nick e senha");
             return;
         }
 
         jogadores = DadosJogadores.carregarJogadores();
-        for(Jogador jogador : jogadores){
-            if(jogador.getNick().equals(nick) && jogador.getSenha().equals(senha)){
-                //colorar a opcao bloqueado depois no if
+
+        for (Jogador jogador : jogadores) {
+            if (jogador.getNick().equals(nick) && jogador.getSenha().equals(senha)) {
                 JOptionPane.showMessageDialog(this, "Login efetuado com sucesso!");
                 dispose();
 
@@ -99,6 +126,7 @@ public class TelaLogin extends JFrame{
                 return;
             }
         }
+
         JOptionPane.showMessageDialog(this, "Nick ou senha incorretos!");
     }
 }
