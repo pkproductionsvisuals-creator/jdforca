@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Cadastro/Cadastro.iml" filepath="$PROJECT_DIR$/Cadastro/Cadastro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JF/JF.iml" filepath="$PROJECT_DIR$/JF/JF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JFORCA.iml" filepath="$PROJECT_DIR$/.idea/JFORCA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex05/S2/S2.iml" filepath="$PROJECT_DIR$/ex05/S2/S2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Swing/Swing.iml" filepath="$PROJECT_DIR$/Swing/Swing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TEST_PREPARATION/TEST_PREPARATION.iml" filepath="$PROJECT_DIR$/TEST_PREPARATION/TEST_PREPARATION.iml" />
+      <module fileurl="file://$PROJECT_DIR$/assert/assert.iml" filepath="$PROJECT_DIR$/assert/assert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex01/ex01.iml" filepath="$PROJECT_DIR$/ex01/ex01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex02/ex02.iml" filepath="$PROJECT_DIR$/ex02/ex02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex03/ex03.iml" filepath="$PROJECT_DIR$/ex03/ex03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex04/ex04.iml" filepath="$PROJECT_DIR$/ex04/ex04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex05/ex05.iml" filepath="$PROJECT_DIR$/ex05/ex05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/s1/s1.iml" filepath="$PROJECT_DIR$/s1/s1.iml" />
+    </modules>
+  </component>
+</project>
